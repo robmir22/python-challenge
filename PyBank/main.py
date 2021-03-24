@@ -35,7 +35,9 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvreader)
     month_count = 0
+    total = 0
     for row in csvreader:
         month_count += 1
-    
+        total += int(row[1])
     print(month_count)
+    print(total)

@@ -30,14 +30,42 @@ import os
 import csv
 
 csvpath = os.path.join("Resources", "budget_data.csv")
+#with open(csvpath) as csvfile:
+#    csvreader = csv.reader(csvfile, delimiter=",")
+#    csv_header = next(csvreader)
+#    month_count = 0
+#    total = 0
+#    for row in csvreader:
+#        month_count += 1
+#        total += int(row[1])
+#    print(month_count)
+#    print(total)
+with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=",")
+    csv_header = next(csvreader)
+    monthly_changes1 = [int(row[1]) for row in csvreader]
+    
+with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=",")
+    csv_header = next(csvreader)
+    next(csvreader)   
+    monthly_changes2 = [int(row[1]) for row in csvreader]
+    month_change = [row[0] for row in csvreader]
 
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvreader)
-    month_count = 0
-    total = 0
-    for row in csvreader:
-        month_count += 1
-        total += int(row[1])
-    print(month_count)
-    print(total)
+    next(csvreader)   
+    month_change = [row[0] for row in csvreader]
+
+print(monthly_changes1)
+print(monthly_changes2)
+print(month_change)
+
+print(len(monthly_changes1))
+print(len(monthly_changes2))
+print(len(month_change))
+
+for int(element) in month_change:
+    changes_list = int(monthly_changes2[element]) - int(monthly_changes1[element])
+    print(changes_list)

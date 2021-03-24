@@ -58,6 +58,8 @@ with open(csvpath) as csvfile:
     next(csvreader)   
     month_change = [row[0] for row in csvreader]
 
+monthly_changes1.pop(85)
+
 print(monthly_changes1)
 print(monthly_changes2)
 print(month_change)
@@ -66,6 +68,13 @@ print(len(monthly_changes1))
 print(len(monthly_changes2))
 print(len(month_change))
 
-for int(element) in month_change:
-    changes_list = int(monthly_changes2[element]) - int(monthly_changes1[element])
-    print(changes_list)
+zipped_lists = zip(monthly_changes2,monthly_changes1)
+changes_list = [x-y for (x,y)in zipped_lists]
+
+print(changes_list)
+
+print(max(changes_list))
+print(min(changes_list))
+
+average_change = sum(changes_list) / len(changes_list)
+print(average_change)

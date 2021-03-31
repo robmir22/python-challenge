@@ -48,15 +48,30 @@ winner_position = vote_count.index(winner)
 winnerwinner = candidates[winner_position]
 
 
-print("------------------------------")
+print("--------------------------------------")
 print("Election Results")
-print("------------------------------")
+print("--------------------------------------")
 print(f"Total Votes: {casted_votes}")
-print("------------------------------")
+print("--------------------------------------")
 for x in range(len(candidates)):
     print(f"{candidates[x]}: {percentages[x]:.2f}% ({vote_count[x]} votes)")
-print("------------------------------")
+print("--------------------------------------")
 print(f"The winner is: {winnerwinner}")
-print("------------------------------")
+print("--------------------------------------")
 
+output_path = os.path.join( "analysis", "Election_Results.txt")
 
+with open(output_path, 'w') as result:
+
+    result.write("--------------------------------------\n")
+    result.write("Election Results\n")
+    result.write("--------------------------------------\n")
+    result.write(f"Total Votes: {casted_votes}\n")
+    result.write("--------------------------------------\n")
+    for x in range(len(candidates)):
+        result.write(f"{candidates[x]}: {percentages[x]:.2f}% ({vote_count[x]} votes)\n")
+    result.write("--------------------------------------\n")
+    result.write(f"The winner is: {winnerwinner}\n")
+    result.write("--------------------------------------\n")
+print("")
+print(f"Results are now available: {output_path}")

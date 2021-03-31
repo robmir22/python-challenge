@@ -55,6 +55,8 @@ print(f"Average  Change: $ {average_change:.2f}")
 print(f"Greatest Increase in Profits: {maxmonth} with ${max(changes_list)}")
 print(f"Greatest Decrease in Profits: {minmonth} with ${min(changes_list)}")
 print("--------------------------------------------------------")
+print(" ")
+print(" ")
 
 
 output_path = os.path.join( "analysis", "Financial_analysis.txt")
@@ -70,3 +72,5 @@ with open(output_path, 'w') as result:
     result.write(f"\nGreatest Increase in Profits: {maxmonth} with ${max(changes_list)}")
     result.write(f"\nGreatest Decrease in Profits: {minmonth} with ${min(changes_list)}")
     result.write("\n--------------------------------------------------------")
+
+print(f"Results are now available: {output_path}")

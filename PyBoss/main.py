@@ -85,6 +85,37 @@ for number in socialsec:
     var = number[-4:]
     SocialModified.append(f'***-**-{var}')
 
-for number in socialsec:
-    var = number[-4:]
-    SocialModified.append(f'***-**-{var}')
+#1957-12-20 YYYY-MM-DD
+#12/20/1957 MM/DD/YYYY
+year = []
+month = []
+day = []
+newDOB = []
+
+for date in DOB:
+    info = date.split("-")
+    year.append(info[0])
+    month.append(info[1])
+    day.append(info[2])
+
+newDOB = zip(month,day,year)
+newnewDOB = [str(x)+"/"+str(y)+"/"+str(z) for (x,y,z) in newDOB]
+
+print(len(Emp_id))
+print(len(FirstName))
+print(len(SecondName))
+print(len(newnewDOB))
+print(len(SocialModified))
+print(len(State))
+
+output_path = os.path.join( "analysis", "Employee_list.csv")
+
+final = zip(Emp_id, FirstName, SecondName,newnewDOB, SocialModified, State)
+
+
+with open(output_path, "w", newline='') as datafile:
+    writer = csv.writer(datafile)
+
+    writer.writerow(["Emp ID","First Name","Last Name","DOB","SSN","State"])
+
+    writer.writerows(final)

@@ -101,12 +101,7 @@ for date in DOB:
 newDOB = zip(month,day,year)
 newnewDOB = [str(x)+"/"+str(y)+"/"+str(z) for (x,y,z) in newDOB]
 
-print(len(Emp_id))
-print(len(FirstName))
-print(len(SecondName))
-print(len(newnewDOB))
-print(len(SocialModified))
-print(len(State))
+
 
 output_path = os.path.join( "analysis", "Employee_list.csv")
 
